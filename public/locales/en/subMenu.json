@@ -1,0 +1,53 @@
+{
+  "informed": "Instant data",
+  "additionals": "Additionals",
+  "config": "Easy configuration",
+
+  "notifications": "Notifications",
+  "notificationsDesc": "Keep up to date with new deals",
+  "notificationsMore": "Any incident related to your team or organization will also be notified.",
+
+  "chat": "Chat",
+  "chatDesc": "Instant contact with groups",
+  "chatMore": "Send bulk messages to user groups and private messages",
+
+  "transactions": "Transactions & reports",
+  "transactionsDesc": "Sort, filter and create detailed reports about transactions or users",
+  "transactionsMore": "View transactions in real-time, add comments to them and make effective decisions",
+
+  "rankings": "Rankings",
+  "rankingsDesc": "Create rankings of users, products, and services",
+  "rankingsMore": "Make them available to employees and support competition between employees",
+
+  "timers": "Stopwatches",
+  "timersDesc": "Measure and account for project time",
+  "timersMore": "Manage time-billed projects",
+
+  "items": "Items",
+  "itemsDesc": "Create product, service and event groups",
+  "itemsMore": "Organize products, services or events to create commission systems easily",
+
+  "teams": "Teams",
+  "teamsDesc": "Manage teams, assign managers",
+  "teamsMore": "Divide the organization into teams and create commission systems for them",
+
+  "users": "Users management",
+  "usersDesc": "Add and delete users",
+  "usersMore": "Invite colleagues, grant and revoke permissions",
+
+  "organizations": "Organizations management",
+  "organizationsDesc": "Create systems for several organizations",
+  "organizationsMore": "You can be a member or creator of multiple organizations",
+
+  "systems": "Commissions systems",
+  "systemsDesc": "Manage systems, add, delete, clone, deactivate",
+  "systemsMore": "All systems at hand. Create new systems based on your current systems.",
+
+  "thresholds": "Thresholds",
+  "thresholdsDesc": "Create even the most complex performance thresholds simply",
+  "thresholdsMore": "Set thresholds and let your employees watch as they approach them",
+
+  "system_creator": "Quick & Easy system creator",
+  "system_creatorDesc": "Easy commission systems wizard",
+  "system_creatorMore": "Create even very sophisticated commission systems quickly"
+}
