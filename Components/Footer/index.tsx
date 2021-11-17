@@ -4,7 +4,6 @@ import { cloneElement, FunctionComponent } from "react";
 import { FacebookFBrands } from "../Icons";
 import { useTranslation } from "react-i18next";
 import useFooterElements from "./useFooterElements";
-import paths from "../../data/paths";
 
 const appName = process.env.NEXT_PUBLIC_APPNAME;
 
@@ -132,16 +131,6 @@ const Footer: FunctionComponent<Props> = ({}) => {
           <h4 className="claim">Some Bold Statement</h4>
           <div className="bottomLinks">
             <div className="copyright">{`${appName} ©2021`}</div>
-            <LinkStyled className="bottomLink">
-              <Link href={paths.privacy}>
-                <a>{t("footer:privacy")}</a>
-              </Link>
-            </LinkStyled>
-            <LinkStyled className="bottomLink">
-              <Link href={paths.terms}>
-                <a>{t("footer:terms")}</a>
-              </Link>
-            </LinkStyled>
           </div>
         </div>
         <div className="socialsIcons">

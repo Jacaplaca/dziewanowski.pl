@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import locales from "../../data/locale";
 
 const useMainStore = () => {
-  const [background, setBackground] = useState("#ffffff");
+  const [background, setBackground] = useState("#000000");
   const [locale, setLocale] = useState("en-US");
   const {
     i18n: { language },

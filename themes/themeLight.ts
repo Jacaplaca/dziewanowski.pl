@@ -19,6 +19,8 @@ const theme = {
         black: "#030e12",
         green: "#6db784",
         white: "#ffffff",
+        pageBackground: "#01260d",
+        cardBackground: "#fffef5",
       },
       darkBlue: {
         main: "#263240",

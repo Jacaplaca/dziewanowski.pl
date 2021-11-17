@@ -1,23 +1,27 @@
+import Link from "next/link";
 import type { NextPage } from "next";
 import styled, { useTheme } from "styled-components";
 import Layout from "../Components/Layout";
 import staticPropsInitialize from "../utils/staticPropsInitialize";
 import { Chrono } from "react-chrono";
-import timelineData from "../data/timelineData";
+import { useTranslation } from "react-i18next";
+import { portfolioTimelineEN, portfolioTimelinePL } from "../data/timelineData";
+import TimelineContent from "../Components/Timeline/Content";
+import antdBreakpoints from "../themes/antdBreakpoints";
+import Footer from "../Components/Footer";
 
 const Wrapper = styled.section`
+  background-color: ${({ theme }) =>
+    theme.colors.palette.scheme1.pageBackground};
   flex: 0;
   display: flex;
-  /* align-items: center; */
   flex-direction: column;
   #wrapper__content {
     height: 100%;
     max-width: ${({ theme }) => theme.sizes.headerWidth};
 
-    /* padding-top: 30px; */
     .timeline-main-wrapper::-webkit-scrollbar-thumb {
       border-radius: 50px !important;
-      /* width: 80%; */
     }
     .css-1ghk4q2-Circle.active::after {
       width: 8px !important;
@@ -26,34 +30,417 @@ const Wrapper = styled.section`
     .timeline-item-title {
       padding: 10px;
       border-radius: 15px;
+      color: ${({ theme }) => theme.colors.palette.scheme1.cardBackground};
+    }
+    .active {
+      color: black;
     }
     .timeline-card-content {
+      background: ${({ theme }) => theme.colors.palette.scheme1.cardBackground};
       padding: 25px 35px;
-      /* margin: 0; */
-      /* display: none; */
       border-radius: 20px;
+      @media ${antdBreakpoints.mdMax} {
+        padding: 10px 15px;
+        width: 100%;
+      }
       width: 80%;
       .card-description {
         width: 100%;
       }
+      .card-sub-title {
+        font-size: 0.9em;
+        line-height: 1.2em;
+        color: ${({ theme }) => theme.colors.palette.scheme1.pageBackground};
+        text-transform: uppercase;
+        font-weight: 900;
+        opacity: 0.65;
+        margin-bottom: 10px;
+        /* background-color: ${({ theme }) =>
+          theme.colors.palette.scheme1.green}; */
+        /* display: inline-block; */
+      }
       .card-title {
-        color: ${({ theme }) => theme.colors.palette.scheme1.black};
+        @media ${antdBreakpoints.mdMax} {
+          font-size: 1.5em;
+          line-height: 1.3em;
+        }
+        font-size: 1.7em;
+        line-height: 1.5em;
+        color: ${({ theme }) => theme.colors.text.dark};
+        margin-bottom: 25px;
+        font-weight: 300;
+        text-align: end;
       }
     }
   }
 `;
 
+const CommissionSystemsWeb = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+  const url = "https://example.pl";
+
+  const imageUrl = "/images/commissionweb.jpg";
+  const gitUrl = "https://github.com/Jacaplaca/Commissions_calc_website";
+
+  if (language === "pl") {
+    return (
+      <TimelineContent
+        url={url}
+        // loginData={loginData}
+        imageUrl={imageUrl}
+        gitUrl={gitUrl}
+      ></TimelineContent>
+    );
+  }
+  return (
+    <TimelineContent
+      url={url}
+      // loginData={loginData}
+      imageUrl={imageUrl}
+      gitUrl={gitUrl}
+    ></TimelineContent>
+  );
+};
+
+const CommissionSystemsApp = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+  const url = "https://example.pl";
+  const loginData = {
+    login: "example",
+    password: "example",
+  };
+  const imageUrl = "/images/commission.jpg";
+  const gitUrl = "https://example.pl";
+
+  if (language === "pl") {
+    return (
+      <TimelineContent
+        url={url}
+        loginData={loginData}
+        imageUrl={imageUrl}
+        gitUrl={gitUrl}
+      >
+        Aplikacja do tworzenie systemów prowizyjnych dla między innymi
+        przedstawicieli handlowych.
+        <div className="children__more">
+          <Link href="https://example.com">
+            <a>więcej informacji o aplikacji</a>
+          </Link>
+        </div>
+      </TimelineContent>
+    );
+  }
+  return (
+    <TimelineContent
+      url={url}
+      loginData={loginData}
+      imageUrl={imageUrl}
+      gitUrl={gitUrl}
+    >
+      Application for creating commission systems for sales representatives.
+    </TimelineContent>
+  );
+};
+
+const Ecomm = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+  const url = "https://ecomm.dziewanowski.pl";
+  const loginData = null;
+  const imageUrl = "/images/ecomm.jpg";
+  const gitUrl = "https://shooterstats.dziewanowski.pl";
+
+  if (language === "pl") {
+    return (
+      <TimelineContent
+        url={url}
+        loginData={loginData}
+        imageUrl={imageUrl}
+        // gitUrl={gitUrl}
+      >
+        Zarządzanie treścią, dodawanie produktów, tworzenie promocji.
+        Rejestracja klientów.
+      </TimelineContent>
+    );
+  }
+  return (
+    <TimelineContent
+      url={url}
+      loginData={loginData}
+      imageUrl={imageUrl}
+      // gitUrl={gitUrl}
+    >
+      Content management, adding products, creating promotions. Customer
+      registration.
+    </TimelineContent>
+  );
+};
+
+const Costs = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+  const url = "https://costs.dziewanowski.pl";
+  const loginData = {
+    login: "app@dziewanowski.pl",
+    password: "mypass",
+  };
+  const imageUrl = "/images/costs.jpg";
+  const gitUrl = "https://shooterstats.dziewanowski.pl";
+
+  if (language === "pl") {
+    return (
+      <TimelineContent
+        url={url}
+        loginData={loginData}
+        imageUrl={imageUrl}
+        // gitUrl={gitUrl}
+      >
+        Aplikacja mająca za zadanie zapisać, porządkować i klasyfikować koszty z
+        dokładnością do pracownia. Pracownik obsługujący aplikację dodaje do
+        niej fakturę i wybiera odpowiednie kategorie kosztu. Na tej podstawie
+        hurtownia danych ocenia realną wydajność zespołów handlowych i
+        poszczególnych handlowców a także marże jakie generują dla firmy.
+        Aplikacja pomaga również dyrektorowi handlowemu tworzyć plany dla
+        handlowców.
+      </TimelineContent>
+    );
+  }
+  return (
+    <TimelineContent
+      url={url}
+      loginData={loginData}
+      imageUrl={imageUrl}
+      // gitUrl={gitUrl}
+    >
+      An application designed to record, organize and classify costs with the
+      accuracy of the employee. The employee running the application adds an
+      invoice to it and selects the appropriate cost categories. On this basis,
+      the data warehouse evaluates the real performance of sales teams and
+      individual traders and the margins they generate for the company. The app
+      also helps the sales director create plans for salespeople.
+    </TimelineContent>
+  );
+};
+
+const Pollster = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+  const url = "https://survey.dziewanowski.pl";
+  const loginData = {
+    login: "dziewanowski@gmail.com",
+    password: "aaaaaa",
+  };
+  const imageUrl = "/images/survey.jpg";
+  const gitUrl = "https://shooterstats.dziewanowski.pl";
+
+  if (language === "pl") {
+    return (
+      <TimelineContent
+        url={url}
+        loginData={loginData}
+        imageUrl={imageUrl}
+        // gitUrl={gitUrl}
+      >
+        Aplikacja dla dużej drukarni do wysyłania trójjęzycznych ankiet do
+        klientów, zbierania i analizowania wyników. Firma co roku wysyła około
+        1000 ankiet do jej rozsianych po całej Europie klientów. Do klientów
+        wysyłane są masowe emaile z indywidualnym linkiem do ankiety, który
+        wygasa po wypełnieniu. Po wypełnieniu ankiety wyniki zapisywane są w
+        bazie danych. Odpowiedzi na każde z pytań przyporządkowana jest ocena.
+        Suma ocen oraz średnia dają firmie obraz jakie obszary obsługi klienta,
+        produkcji czy logistyki są do poprawy i jak zmieniły się oceny
+        poszczególnych kwestii w porównaniu do wcześniejszych lat.
+      </TimelineContent>
+    );
+  }
+  return (
+    <TimelineContent
+      url={url}
+      loginData={loginData}
+      imageUrl={imageUrl}
+      // gitUrl={gitUrl}
+    >
+      Application for a large printing company to send three lingual surveys to
+      customers, collect and analyze results. Every year the company sends about
+      1000 surveys to its customers spread all over Europe. Customers are sent
+      mass emails with an individual link to the survey, which expires after
+      completion. After completing the survey, the results are stored in a
+      database. The answers to each question are assigned a grade. The sum of
+      the ratings and the average gives the company a picture of which areas of
+      customer service, production or logistics need improvement and how the
+      ratings of the individual issues have changed compared to previous years.
+    </TimelineContent>
+  );
+};
+
+const SwiadomaWeb = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+  const url = "https://swiadomafirma.pl";
+
+  const imageUrl = "/images/swiadoma.jpg";
+  const gitUrl = "https://okna.dziewanowski.pl";
+
+  if (language === "pl") {
+    return (
+      <TimelineContent
+        url={url}
+        // loginData={loginData}
+        imageUrl={imageUrl}
+        // gitUrl={gitUrl}
+      ></TimelineContent>
+    );
+  }
+  return (
+    <TimelineContent
+      url={url}
+      // loginData={loginData}
+      imageUrl={imageUrl}
+      // gitUrl={gitUrl}
+    ></TimelineContent>
+  );
+};
+
+const WindowWebsite = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+  const url = "https://okna.dziewanowski.pl";
+
+  const imageUrl = "/images/okna.jpg";
+  const gitUrl = "https://okna.dziewanowski.pl";
+
+  if (language === "pl") {
+    return (
+      <TimelineContent
+        url={url}
+        // loginData={loginData}
+        imageUrl={imageUrl}
+        // gitUrl={gitUrl}
+      ></TimelineContent>
+    );
+  }
+  return (
+    <TimelineContent
+      url={url}
+      // loginData={loginData}
+      imageUrl={imageUrl}
+      // gitUrl={gitUrl}
+    ></TimelineContent>
+  );
+};
+
+const Shooter = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+  const url = "https://shooterstats.dziewanowski.pl";
+  const loginData = {
+    login: "marguerite.maggio@ethereal.email",
+    password: "aleratem",
+  };
+  const imageUrl = "/images/shooterstats.jpg";
+  const gitUrl = "https://shooterstats.dziewanowski.pl";
+
+  if (language === "pl") {
+    return (
+      <TimelineContent
+        url={url}
+        loginData={loginData}
+        imageUrl={imageUrl}
+        // gitUrl={gitUrl}
+      >
+        Właściciel zakłada konta organizatorom, ci z kolei dodają zawodników,
+        zawody i konkurencje. System generuje pdf tzw. metryczki, które
+        wypełniają sędziowie na stanowiskach strzeleckich, które z których
+        wyniki są dodawanie do sytemu. Uczestnicy na żywo mogą obserwować tabele
+        wyników. System generuję raporty w pdf to rozwieszenia na tablicach.
+        System obsłużył do tej porty kilkadziesiąt zawodów, w których
+        uczestniczyło kilka tysięcy zawodników.
+      </TimelineContent>
+    );
+  }
+  return (
+    <TimelineContent
+      url={url}
+      loginData={loginData}
+      imageUrl={imageUrl}
+      // gitUrl={gitUrl}
+    >
+      The owner creates accounts for organizers, who in turn add competitors,
+      events and competitions. The system generates pdfs of metrics filled out
+      by judges at the shooting locations, which results are added to the
+      system. Participants can watch the live scoreboard. The system generates
+      reports in pdf format to be hung on the boards. The system has so far
+      supported dozens of competitions in which several thousand competitors
+      participated.
+    </TimelineContent>
+  );
+};
+
+const Django = () => {
+  const {
+    i18n: { language },
+  } = useTranslation("common");
+
+  if (language === "pl") {
+    return (
+      <div>
+        Działanie programu polegało na nauczeniu handlowców nawyku planowania.
+        Na początku każdego tygodnia pracownik planował resztę tygodnia,
+        wybierał dni, czynności, klientów. Po wykonaniu czynności raportował
+        wynik lub przebieg wydarzenia lub dodawał komentarz.
+      </div>
+    );
+  }
+  return (
+    <div>
+      The main purpose of the program was to teach sales reps the habit of
+      planning. At the beginning of each week, the employee would plan the rest
+      of the week, choose days, activities, customers. After the activity, he
+      reported the result or the course of the event or added a comment.
+    </div>
+  );
+};
+
+const Head = styled.h1`
+  height: 50px;
+`;
+
+const ChronoContainer = styled.div`
+  width: 100vw;
+  /* height: calc(100vh-50px); */
+  height: 100vh;
+`;
+
 const Home: NextPage = () => {
   const theme = useTheme();
+  const {
+    t,
+    i18n: { language },
+  } = useTranslation("common");
   return (
     <Layout backgroundColor={theme.colors.palette.indexBackground}>
       <Wrapper>
+        {/* <Head>alkdsjflaskdf</Head> */}
         <div id="wrapper__content">
-          <div style={{ width: "100vw", height: "100vh" }}>
+          <ChronoContainer>
             <Chrono
-              items={timelineData}
               mode="VERTICAL"
-              cardHeight={250}
+              useReadMore={false}
+              // @ts-ignore:next-line example is ok according to documentation but typescript complains
+              items={
+                language === "en" ? portfolioTimelineEN : portfolioTimelinePL
+              }
+              // cardHeight={250}
               scrollable
               theme={{
                 primary: theme.colors.palette.scheme1.green,
@@ -62,10 +449,21 @@ const Home: NextPage = () => {
                 cardForeColor: theme.colors.palette.scheme1.black,
                 titleColor: theme.colors.palette.scheme1.black,
               }}
-            />
-          </div>
+            >
+              <CommissionSystemsWeb />
+              <CommissionSystemsApp />
+              <Ecomm />
+              <Costs />
+              <Pollster />
+              <SwiadomaWeb />
+              <WindowWebsite />
+              <Shooter />
+              <Django />
+            </Chrono>
+          </ChronoContainer>
         </div>
       </Wrapper>
+      {/* <Footer /> */}
     </Layout>
   );
 };

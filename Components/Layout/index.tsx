@@ -26,6 +26,7 @@ const Wrapper = styled(motion.main)`
   flex: 0;
   height: 100vh;
   position: relative;
+  background: ${({ theme }) => theme.colors.palette.scheme1.pageBackground}; ;
 `;
 
 const Container = styled(motion.div)`

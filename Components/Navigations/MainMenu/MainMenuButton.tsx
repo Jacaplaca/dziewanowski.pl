@@ -48,6 +48,7 @@ const ButtonWrapper = styled.button`
     font-weight: 600;
     color: ${({ theme }) => theme.colors.text.midDarkBlue};
     gap: 0 5px;
+    color: white;
   }
 
   /* display: flex; */

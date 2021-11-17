@@ -1,7 +1,5 @@
 import { useTranslation } from "next-i18next";
-import { useState, useEffect } from "react";
-import SubMenu from "./MainMenu/SubMenu";
-import CasesSubMenu from "./MainMenu/CasesSubMenu";
+import { useState } from "react";
 import LanguageSwitcher from "./MainMenu/LanguageSwitcher";
 
 const useMainMenuElements = () => {
@@ -25,10 +23,20 @@ const useMainMenuElements = () => {
 
   const elements = [
     {
+      label: t("contact"),
+      key: 1,
+      // action: () => toggler(4),
+      // SubMenu: <LanguageSwitcher />,
+      centerSubMenu: false,
+      link: "/contact",
+    },
+    {
       label: language,
       key: 4,
       action: () => toggler(4),
       SubMenu: <LanguageSwitcher />,
+      centerSubMenu: false,
+      link: undefined,
     },
   ];
 

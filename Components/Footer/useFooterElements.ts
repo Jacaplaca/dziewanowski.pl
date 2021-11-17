@@ -1,4 +1,3 @@
-import useCaseMenuElements from "../Cases/useCaseMenuElements";
 import useSubMenuElements from "../Navigations/MainMenu/SubMenu/useSubMenuElements";
 
 const useFooterElements = () => {
@@ -27,7 +26,6 @@ const useFooterElements = () => {
     },
   ];
   const features = useSubMenuElements();
-  const cases = useCaseMenuElements();
 
   const makeFeatures = () => {
     features.forEach((group) => {
@@ -39,15 +37,7 @@ const useFooterElements = () => {
     });
   };
 
-  const makeCases = () => {
-    cases.forEach((group) => {
-      const { path, label } = group;
-      content[1].links.push({ label, path });
-    });
-  };
-
   makeFeatures();
-  makeCases();
   // const [footerContent, setFooterContent] = useState(content);
 
   return content;

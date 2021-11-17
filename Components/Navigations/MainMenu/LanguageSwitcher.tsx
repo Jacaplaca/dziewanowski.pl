@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import Image from "next/image";
 import { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
 import { transparentize } from "polished";
 import { useRouter } from "next/router";
 

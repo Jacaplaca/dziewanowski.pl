@@ -1,11 +1,7 @@
 import styled from "styled-components";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import MainMenuButton from "./MainMenuButton";
-import MainNavigationBigButton from "../../Buttons/MainNavigationBigButton";
 import { useTranslation } from "react-i18next";
-import SubMenu from "./SubMenu";
-import LanguageSwitcher from "./LanguageSwitcher";
-import CasesSubMenu from "./CasesSubMenu";
 import useMainMenuElements from "../useMainMenuElements";
 
 type Props = {};

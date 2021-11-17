@@ -1,12 +1,11 @@
 import Link from "next/link";
 import styled, { css } from "styled-components";
 import { cloneElement, FunctionComponent, useState } from "react";
-import { BarsRegular, ChevronRightRegular } from "../../Icons";
+import { ChevronRightRegular } from "../../Icons";
 import HamburgerAnimated from "../../Icons/HamburgerAnimated";
 import useMainMenuElements from "../useMainMenuElements";
 import { useTranslation } from "react-i18next";
-import MainNavigationBigButton from "../../Buttons/MainNavigationBigButton";
-import { lighten, transparentize } from "polished";
+import { lighten } from "polished";
 
 type Props = {};
 
