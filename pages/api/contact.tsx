@@ -20,7 +20,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const mailData = {
     from: emailAddress,
     to: emailToReceive,
-    subject: `${appName} Message From ${req.body.email}`,
+    subject: `dziewanowski.pl | Message From ${req.body.email}`,
     text: req.body.message,
     html: `<div>${req.body.email}</div><div>${req.body.message}</div>`,
   };

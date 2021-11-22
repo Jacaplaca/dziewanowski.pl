@@ -147,7 +147,10 @@ const menuContainer = css`
 const Menu = styled.div`
   ${menuContainer};
   box-shadow: ${({ theme }) => theme.shadows.subMenu};
-  top: 50px;
+  top: calc(
+    ${({ theme }) => theme.sizes.mainMenuHeight} +
+      ${({ theme }) => theme.sizes.portfolioHeaderHeight}
+  );
   left: 0;
   right: 0;
   z-index: 2;

@@ -4,5 +4,17 @@
   "username": "Username",
   "password": "Password",
   "github": "GitHub",
-  "contact": "contact"
+  "contact": "contact",
+  "aboutMe": "about me",
+  "contactTitle": "Have you any question?",
+  "contactSend": "Send",
+  "contactEmail": "email",
+  "contactMessage": "message",
+  "contactAfterSend": "Thank you for your inquiry. I'll try to respond as soon as possible.",
+  "contactSent": "Message sent!",
+  "contactNotSent": "Message not sent! Try later.",
+  "correctEmail": "I need correct email to send response",
+  "clearButton": "Clear",
+  "about.title": "About me",
+  "portfolio.title": "some of my projects"
 }

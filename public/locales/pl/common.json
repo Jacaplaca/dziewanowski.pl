@@ -4,5 +4,17 @@
   "username": "Użytkownik",
   "password": "Hasło",
   "github": "GitHub",
-  "contact": "kontakt"
+  "contact": "kontakt",
+  "aboutMe": "o mnie",
+  "contactTitle": "Masz jakieś pytania?",
+  "contactSend": "Wyślij",
+  "contactEmail": "Twój email",
+  "contactMessage": "wiadomość",
+  "contactAfterSend": "Dziękuję za wiadomość, postaram się odpowiedzieć tak szybko jak to tylko możliwe.",
+  "contactSent": "Wiadomość wysłana!",
+  "contactNotSent": "Wiadomość nie wysłana. Spróbuj później.",
+  "correctEmail": "Potrzebuję prawidłowego adresu aby wysłać odpowiedź",
+  "clearButton": "Czyść",
+  "about.title": "O mnie",
+  "portfolio.title": "moje niektóre projekty"
 }

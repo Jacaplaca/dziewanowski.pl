@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { FunctionComponent } from "react";
 import { Input, Button, notification } from "antd";
 import { useForm, Controller } from "react-hook-form";
@@ -32,13 +32,49 @@ const Form = styled.form`
   }
 `;
 
-const SendButton = styled(Button)`
+const button = css`
   border-radius: 10px;
+  font-weight: 500;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
+const SendButton = styled(Button)`
+  ${button};
+  background-color: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+  border: none;
+  color: ${({ theme }) => theme.colors.palette.scheme1.darkGreen};
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+    color: ${({ theme }) => theme.colors.palette.scheme1.darkGreen};
+  }
+  &:disabled,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+    color: ${({ theme }) => theme.colors.palette.scheme1.darkGreen};
+    opacity: 0.5;
+  }
+`;
+
+const SendButtonGhost = styled(Button)`
+  ${button};
+  background-color: transparent;
+  border: 1px solid ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+  color: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+  &:hover {
+    color: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+    border: 1px solid ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+    background-color: transparent;
+    /* background-color: ${({ theme }) =>
+      theme.colors.palette.scheme1.lightGreen}; */
+    /* color: ${({ theme }) => theme.colors.palette.scheme1.darkGreen}; */
+  }
 `;
 
 const Field = styled.div`
   .error {
-    color: ${({ theme }) => theme.colors.palette.red.main};
+    color: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
     font-size: 0.75em;
     height: 15px;
     padding: 0;
@@ -131,12 +167,10 @@ const ContactForm: FunctionComponent<Props> = () => {
         </Field>
 
         <div className="buttons">
-          <SendButton type="ghost" htmlType="button" onClick={handleClearForm}>
+          <SendButtonGhost htmlType="button" onClick={handleClearForm}>
             {t("clearButton")}
-          </SendButton>
-          <SendButton type="primary" htmlType="submit">
-            {t("contactSend")}
-          </SendButton>
+          </SendButtonGhost>
+          <SendButton htmlType="submit">{t("contactSend")}</SendButton>
         </div>
       </Form>
     </Wrapper>

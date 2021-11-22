@@ -14,6 +14,11 @@ const Wrapper = styled.section`
   flex: 0;
   width: 100%;
   position: relative;
+  /* height: calc(
+    ${({ theme }) => theme.sizes.mainMenuHeight} +
+      ${({ theme }) => theme.sizes.portfolioHeaderHeight}
+  ); */
+  background: ${({ theme }) => theme.colors.palette.scheme1.pageBackground};
   .content {
     display: flex;
     justify-content: space-between;

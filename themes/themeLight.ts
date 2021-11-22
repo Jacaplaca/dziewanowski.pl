@@ -3,6 +3,7 @@ import { red } from "@material-ui/core/colors";
 const theme = {
   shadows: {
     subMenu: "0px 6px 9px 0px rgb(0 0 0 / 11%);",
+    badge: "0px 5px 16px -11px rgba(66, 68, 90, 1)",
   },
   sizes: {
     headerWidth: "1170px",
@@ -10,17 +11,24 @@ const theme = {
     distanceFromMenu: "80px",
     distanceFromMenuMobile: "30px",
     paddingLayoutHorizontal: "20px",
+    mainMenuHeight: "60px",
+    portfolioHeaderHeight: "100px",
   },
   colors: {
     palette: {
       scheme1: {
         blue: "#1b4d89",
-        yellow: "#f9e45b",
+        yellow: "#f9f9f9",
         black: "#030e12",
-        green: "#6db784",
+        green: "#606060",
         white: "#ffffff",
-        pageBackground: "#01260d",
-        cardBackground: "#fffef5",
+        pageBackground: "#1e1e1e",
+        cardBackground: "#e9e9e9",
+        lightGreen: "#b8ed97",
+        mediumGreen: "#9fcb83",
+        buttonGreen: "#87bb65",
+        darkGreen: "#324c21",
+        textGreen: "#3d6e1f",
       },
       darkBlue: {
         main: "#263240",

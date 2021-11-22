@@ -16,9 +16,70 @@ const Wrapper = styled.section`
   flex: 0;
   display: flex;
   flex-direction: column;
+  /* margin-top: calc(
+    ${({ theme }) => theme.sizes.mainMenuHeight} +
+      ${({ theme }) => theme.sizes.portfolioHeaderHeight}
+  ); */
+  height: 100%;
+  .css-1oj9gcu-VerticalCircleWrapper::after {
+    border-radius: 50px;
+    width: 2px;
+  }
   #wrapper__content {
+    #chrono__header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        color: ${({ theme }) =>
+          theme.colors.palette.scheme1.lightGreen}!important;
+        letter-spacing: 0.1em;
+        font-size: 2em;
+        font-weight: 500;
+        font-style: italic;
+      }
+    }
+    .css-1knlz3x-TriangleIconWrapper {
+      background-color: ${({ theme }) =>
+        theme.colors.palette.scheme1.cardBackground};
+    }
+    .timeline-controls {
+      background: transparent;
+      li {
+        button {
+          color: ${({ theme }) => theme.colors.palette.scheme1.darkGreen};
+        }
+      }
+    }
+
     height: 100%;
     max-width: ${({ theme }) => theme.sizes.headerWidth};
+
+    .timeline-item-title {
+      background: ${({ theme }) => theme.colors.palette.scheme1.cardBackground};
+      color: ${({ theme }) => theme.colors.palette.scheme1.darkGreen}!important;
+    }
+
+    /* .timeline-item-title .active {
+      background: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+    } */
+
+    .css-10xrb3z-Circle:not(.using-icon) {
+      background: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+      width: 15px;
+      height: 15px;
+    }
+
+    .css-10xrb3z-Circle:not(.using-icon).active::after {
+      background: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+    }
+
+    .css-10xrb3z-Circle:not(.using-icon).active {
+      background: ${({ theme }) => theme.colors.palette.scheme1.pageBackground};
+      width: 20px;
+      height: 20px;
+    }
 
     .timeline-main-wrapper::-webkit-scrollbar-thumb {
       border-radius: 50px !important;
@@ -38,18 +99,32 @@ const Wrapper = styled.section`
     .timeline-card-content {
       background: ${({ theme }) => theme.colors.palette.scheme1.cardBackground};
       padding: 25px 35px;
+      margin: 55px 0px;
+      padding-top: 0px;
       border-radius: 20px;
       @media ${antdBreakpoints.mdMax} {
         padding: 10px 15px;
         width: 100%;
       }
       width: 80%;
+      header {
+        text-align: right;
+        display: flex;
+        flex-direction: row-reverse;
+        @media ${antdBreakpoints.lgMax} {
+          flex-direction: column;
+        }
+      }
       .card-description {
         width: 100%;
       }
       .card-sub-title {
+        padding-top: 25px;
+        @media ${antdBreakpoints.lgMax} {
+          padding-top: 10px;
+        }
         font-size: 0.9em;
-        line-height: 1.2em;
+        line-height: 1.5em;
         color: ${({ theme }) => theme.colors.palette.scheme1.pageBackground};
         text-transform: uppercase;
         font-weight: 900;
@@ -60,16 +135,49 @@ const Wrapper = styled.section`
         /* display: inline-block; */
       }
       .card-title {
-        @media ${antdBreakpoints.mdMax} {
-          font-size: 1.5em;
-          line-height: 1.3em;
-        }
-        font-size: 1.7em;
         line-height: 1.5em;
-        color: ${({ theme }) => theme.colors.text.dark};
-        margin-bottom: 25px;
-        font-weight: 300;
+        @media ${antdBreakpoints.mdMax} {
+          font-size: 1.3em;
+          white-space: pre-line;
+        }
+        @media ${antdBreakpoints.lgMax} {
+          white-space: pre-line;
+        }
+        @media ${antdBreakpoints.lg} {
+          background: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+          width: fit-content;
+          /* white-space: nowrap; */
+          position: relative;
+          margin-top: -7px;
+          border-bottom-left-radius: 7px;
+          border-bottom-right-radius: 7px;
+          box-shadow: ${({ theme }) => theme.shadows.badge};
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            /* width: 10px; */
+            /* height: 10px; */
+            left: -7px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 7px 7px;
+            border-color: transparent transparent
+              ${({ theme }) => theme.colors.palette.scheme1.mediumGreen}
+              transparent;
+          }
+          margin-bottom: 25px;
+        }
+        padding: 10px 20px;
+        display: flex;
+        /* text-align: right; */
+        font-size: 1.3em;
+        color: ${({ theme }) => theme.colors.palette.scheme1.textGreen};
+        font-weight: 700;
         text-align: end;
+        text-transform: uppercase;
       }
     }
   }
@@ -411,14 +519,15 @@ const Django = () => {
   );
 };
 
-const Head = styled.h1`
-  height: 50px;
-`;
-
 const ChronoContainer = styled.div`
   width: 100vw;
-  /* height: calc(100vh-50px); */
-  height: 100vh;
+  height: calc(
+    100vh - ${({ theme }) => theme.sizes.mainMenuHeight} -
+      ${({ theme }) => theme.sizes.portfolioHeaderHeight}
+  );
+  #chrono__header {
+    height: ${({ theme }) => theme.sizes.portfolioHeaderHeight};
+  }
 `;
 
 const Home: NextPage = () => {
@@ -428,11 +537,14 @@ const Home: NextPage = () => {
     i18n: { language },
   } = useTranslation("common");
   return (
-    <Layout backgroundColor={theme.colors.palette.indexBackground}>
+    <Layout backgroundColor={theme.colors.palette.scheme1.lightGreen}>
       <Wrapper>
         {/* <Head>alkdsjflaskdf</Head> */}
         <div id="wrapper__content">
           <ChronoContainer>
+            <div id="chrono__header">
+              <h1>{t("portfolio.title")}</h1>
+            </div>
             <Chrono
               mode="VERTICAL"
               useReadMore={false}
@@ -442,9 +554,10 @@ const Home: NextPage = () => {
               }
               // cardHeight={250}
               scrollable
+              hideControls={true}
               theme={{
-                primary: theme.colors.palette.scheme1.green,
-                secondary: theme.colors.palette.scheme1.yellow,
+                primary: theme.colors.palette.scheme1.lightGreen,
+                secondary: theme.colors.palette.scheme1.pageBackground,
                 cardBgColor: "white",
                 cardForeColor: theme.colors.palette.scheme1.black,
                 titleColor: theme.colors.palette.scheme1.black,

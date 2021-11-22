@@ -23,12 +23,28 @@ const useMainMenuElements = () => {
 
   const elements = [
     {
+      label: "dziewanowski.pl",
+      key: 0,
+      // action: () => toggler(4),
+      // SubMenu: <LanguageSwitcher />,
+      centerSubMenu: false,
+      link: "/",
+    },
+    {
       label: t("contact"),
       key: 1,
       // action: () => toggler(4),
       // SubMenu: <LanguageSwitcher />,
       centerSubMenu: false,
       link: "/contact",
+    },
+    {
+      label: t("aboutMe"),
+      key: 2,
+      // action: () => toggler(4),
+      // SubMenu: <LanguageSwitcher />,
+      centerSubMenu: false,
+      link: "/about",
     },
     {
       label: language,

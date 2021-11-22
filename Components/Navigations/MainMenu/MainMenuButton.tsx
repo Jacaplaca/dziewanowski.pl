@@ -25,12 +25,17 @@ const ButtonWrapper = styled.button`
   display: flex;
   align-items: center;
   background: transparent;
-  transition: all 0.27s ease-in;
+  transition: all 0.17s ease-in;
   /* border: 1px solid ${({ theme }) => "transparent"}; */
-  border-radius: 4px;
+  border-radius: 8px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.palette.scheme1.yellow};
+    background: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
+    .label {
+      color: ${({ theme }) => theme.colors.palette.scheme1.darkGreen};
+    }
   }
 
   .under {
@@ -46,7 +51,7 @@ const ButtonWrapper = styled.button`
     z-index: 1;
     padding: 0 10px;
     font-weight: 600;
-    color: ${({ theme }) => theme.colors.text.midDarkBlue};
+    /* color: ${({ theme }) => theme.colors.text.midDarkBlue}; */
     gap: 0 5px;
     color: white;
   }

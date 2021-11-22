@@ -9,7 +9,7 @@ const StartButton = styled.button`
   font-family: "Roboto", sans-serif;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   border: none;
   border-radius: 45px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -17,9 +17,9 @@ const StartButton = styled.button`
   cursor: pointer;
   outline: none;
 
-  background: ${({ theme }) => theme.colors.palette.scheme1.green};
+  background: ${({ theme }) => theme.colors.palette.scheme1.buttonGreen};
   /* color: ${({ theme }) => theme.colors.text.dark}; */
-  color: white;
+  color: ${({ theme }) => theme.colors.palette.scheme1.cardBackground};
   padding: 15px 25px;
   @media ${antdBreakpoints.mdMax} {
     padding: 10px 15px;
