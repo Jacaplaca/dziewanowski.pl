@@ -47,7 +47,7 @@ const StartButton = styled.button`
 `;
 
 type RiseButtonProps = {
-  onClick: (e: any) => void;
+  onClick?: (e: any) => void;
 };
 
 const RiseButton: FunctionComponent<RiseButtonProps> = ({

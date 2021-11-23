@@ -16,5 +16,7 @@
   "correctEmail": "I need correct email to send response",
   "clearButton": "Clear",
   "about.title": "About me",
-  "portfolio.title": "some of my projects"
+  "portfolio.title": "some of my projects",
+  "goBackButtonLabel": "Go back",
+  "showCredentialsButton": "Show credentials"
 }

@@ -42,7 +42,9 @@ const Header: FunctionComponent<Props> = ({}) => {
   const screen = useBreakpoint();
   return (
     <Wrapper>
-      <div className="content">{screen.lg ? <MainMenu /> : <MainMenu />}</div>
+      <div className="content">
+        {screen.lg ? <MainMenu /> : <MainMenuMobile />}
+      </div>
       <PortalStyled id="portal_subMenu" />
     </Wrapper>
   );

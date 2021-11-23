@@ -12,7 +12,7 @@ const theme = {
     distanceFromMenuMobile: "30px",
     paddingLayoutHorizontal: "20px",
     mainMenuHeight: "60px",
-    portfolioHeaderHeight: "100px",
+    portfolioHeaderHeight: "80px",
   },
   colors: {
     palette: {

@@ -27,7 +27,7 @@ const Wrapper = styled.button`
   }
   .line {
     fill: none;
-    stroke: ${({ theme }) => theme.colors.text.dark};
+    stroke: ${({ theme }) => theme.colors.palette.scheme1.lightGreen};
     stroke-width: 6;
     transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
       stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { CloneSolid } from "../Icons";
+import CheckboxAnimated from "../Icons/CheckboxAnimated";
 
 type Props = { textToCopy: string };
 const Wrapper = styled.button`
@@ -13,20 +14,32 @@ const Wrapper = styled.button`
 
 const CloneSolidStyled = styled(CloneSolid)`
   font-size: 1em !important;
-  opacity: 0.4;
+  opacity: 1;
+  color: ${({ theme }) => theme.colors.palette.scheme1.textGreen};
   &:hover {
     opacity: 0.8;
   }
 `;
 
 const CopyToClipboardButton: FunctionComponent<Props> = ({ textToCopy }) => {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (copied) {
+      setTimeout(() => {
+        setCopied(false);
+      }, 10000);
+    }
+  }, [copied]);
+
+  const handleCopyToClipboard = () => {
+    setCopied(true);
+    navigator.clipboard.writeText(textToCopy);
+  };
+
   return (
-    <Wrapper
-      onClick={() => {
-        navigator.clipboard.writeText(textToCopy);
-      }}
-    >
-      <CloneSolidStyled />
+    <Wrapper onClick={handleCopyToClipboard}>
+      {copied ? <CheckboxAnimated /> : <CloneSolidStyled />}
     </Wrapper>
   );
 };

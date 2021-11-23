@@ -212,7 +212,8 @@ const BackButton = styled.button`
   position: fixed;
   display: flex;
   outline: none;
-  background: ${({ theme }) => lighten(0.15, theme.colors.palette.blue.light)};
+  background: ${({ theme }) =>
+    lighten(0.15, theme.colors.palette.scheme1.lightGreen)};
   width: 100%;
   border: none;
   z-index: 4;

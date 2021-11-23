@@ -6,6 +6,7 @@ import RiseButton from "../Buttons/RiseButton";
 import { GithubBrands } from "../Icons";
 import antdBreakpoints from "../../themes/antdBreakpoints";
 import CopyToClipboardButton from "../Buttons/CopyToClipboardButton";
+import Credentials from "./Credentials";
 
 type Props = {
   url?: string;
@@ -48,7 +49,7 @@ const Wrapper = styled.section`
     width: 100%;
     padding: 10px 0px;
     display: flex;
-    gap: 0px 20px;
+    gap: 0px 80px;
     @media ${antdBreakpoints.xlMax} {
       flex-direction: column;
       gap: 15px 0px;
@@ -96,46 +97,6 @@ const Wrapper = styled.section`
         }
       }
     }
-    #credentials {
-      display: flex;
-      flex-direction: column;
-      gap: 0px 20px;
-      border-radius: 10px;
-      /* border: 1px solid #e6e6e6; */
-      padding: 15px;
-      /* background: ${({ theme }) => theme.colors.palette.scheme1.green}; */
-      /* color: white; */
-      h4 {
-        text-transform: uppercase;
-        font-weight: 400;
-        font-size: 1.2em;
-      }
-      .field {
-        align-items: baseline;
-        .field__data,
-        .label {
-          display: flex;
-          gap: 0px 10px;
-          align-items: center;
-        }
-        .field__data {
-          @media ${antdBreakpoints.mdMax} {
-            font-size: 0.9em;
-          }
-          font-size: 1.2em;
-          font-weight: 600;
-        }
-        /* gap: 0px 20px; */
-        display: flex;
-        @media ${antdBreakpoints.mdMax} {
-          flex-direction: column;
-          gap: 0px 0px;
-        }
-        .label {
-          width: 80px;
-        }
-      }
-    }
   }
 `;
 
@@ -154,27 +115,7 @@ const TimelineContent: FunctionComponent<Props> = ({
         <div id="children"> {children}</div>
       </div>
       <div id="footer">
-        {loginData ? (
-          <div id="credentials">
-            <h4>{t("credentials")}</h4>
-            <div className="field">
-              <div className="label">{t("username")}:</div>
-              <div className="field__data">
-                {loginData.login}
-                <CopyToClipboardButton textToCopy={loginData.login} />{" "}
-              </div>
-            </div>
-            <div className="field">
-              <div className="label">{t("password")}:</div>
-              <div className="field__data">
-                {loginData.password}{" "}
-                <CopyToClipboardButton textToCopy={loginData.password} />{" "}
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div />
-        )}
+        {loginData ? <Credentials loginData={loginData} /> : <div />}
         <div id="redirect">
           {gitUrl && (
             <button id="git">

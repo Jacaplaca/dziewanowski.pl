@@ -8,7 +8,9 @@ import { useTranslation } from "react-i18next";
 import { portfolioTimelineEN, portfolioTimelinePL } from "../data/timelineData";
 import TimelineContent from "../Components/Timeline/Content";
 import antdBreakpoints from "../themes/antdBreakpoints";
-import Footer from "../Components/Footer";
+// import Footer from "../Components/Footer";
+const ENVIRONMENT = process.env.ENVIRONMENT;
+const isProduction = ENVIRONMENT === "production";
 
 const Wrapper = styled.section`
   background-color: ${({ theme }) =>
@@ -35,9 +37,10 @@ const Wrapper = styled.section`
         color: ${({ theme }) =>
           theme.colors.palette.scheme1.lightGreen}!important;
         letter-spacing: 0.1em;
-        font-size: 2em;
-        font-weight: 500;
+        font-size: 1.5em;
+        font-weight: 600;
         font-style: italic;
+        text-align: center;
       }
     }
     .css-1knlz3x-TriangleIconWrapper {
@@ -90,7 +93,7 @@ const Wrapper = styled.section`
     }
     .timeline-item-title {
       padding: 10px;
-      border-radius: 15px;
+      border-radius: 3px;
       color: ${({ theme }) => theme.colors.palette.scheme1.cardBackground};
     }
     .active {
@@ -101,7 +104,7 @@ const Wrapper = styled.section`
       padding: 25px 35px;
       margin: 55px 0px;
       padding-top: 0px;
-      border-radius: 20px;
+      border-radius: 6px;
       @media ${antdBreakpoints.mdMax} {
         padding: 10px 15px;
         width: 100%;
@@ -543,7 +546,11 @@ const Home: NextPage = () => {
         <div id="wrapper__content">
           <ChronoContainer>
             <div id="chrono__header">
-              <h1>{t("portfolio.title")}</h1>
+              <h1>
+                {isProduction
+                  ? t("portfolio.title")
+                  : "WARNING!! website in development. You are here for you own responsibility"}
+              </h1>
             </div>
             <Chrono
               mode="VERTICAL"

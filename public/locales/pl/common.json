@@ -16,5 +16,7 @@
   "correctEmail": "Potrzebuję prawidłowego adresu aby wysłać odpowiedź",
   "clearButton": "Czyść",
   "about.title": "O mnie",
-  "portfolio.title": "moje niektóre projekty"
+  "portfolio.title": "moje niektóre projekty",
+  "goBackButtonLabel": "Powrót",
+  "showCredentialsButton": "Pokaż dane logowania"
 }
