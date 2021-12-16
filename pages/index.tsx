@@ -553,11 +553,7 @@ const Home: NextPage = () => {
         <div id="wrapper__content">
           <ChronoContainer>
             <div id="chrono__header">
-              <h1>
-                {isProduction
-                  ? t("portfolio.title")
-                  : "WARNING!! website in development. You are here for you own responsibility"}
-              </h1>
+              <h1>{t("portfolio.title")}</h1>
             </div>
             <Chrono
               mode="VERTICAL"
