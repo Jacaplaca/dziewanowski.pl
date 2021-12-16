@@ -56,7 +56,7 @@ const Wrapper = styled.section`
     }
     img {
       max-width: 400px;
-      height: fit-content;
+      height: auto;
       border-radius: 10px;
       box-shadow: ${({ theme }) => theme.shadows.subMenu};
     }

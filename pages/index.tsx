@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { NextPage } from "next";
 import styled, { useTheme } from "styled-components";
 import Layout from "../Components/Layout";
@@ -8,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { portfolioTimelineEN, portfolioTimelinePL } from "../data/timelineData";
 import TimelineContent from "../Components/Timeline/Content";
 import antdBreakpoints from "../themes/antdBreakpoints";
+import MoreLink from "../Components/Buttons/MoreLink";
 // import Footer from "../Components/Footer";
 const ENVIRONMENT = process.env.ENVIRONMENT;
 const isProduction = ENVIRONMENT === "production";
@@ -110,6 +110,10 @@ const Wrapper = styled.section`
         width: 100%;
       }
       width: 80%;
+      .emk90bu0 {
+        background: ${({ theme }) =>
+          theme.colors.palette.scheme1.cardBackground};
+      }
       header {
         text-align: right;
         display: flex;
@@ -190,7 +194,7 @@ const CommissionSystemsWeb = () => {
   const {
     i18n: { language },
   } = useTranslation("common");
-  const url = "https://example.pl";
+  const url = "https://calcaider.com";
 
   const imageUrl = "/images/commissionweb.jpg";
   const gitUrl = "https://github.com/Jacaplaca/Commissions_calc_website";
@@ -219,13 +223,14 @@ const CommissionSystemsApp = () => {
   const {
     i18n: { language },
   } = useTranslation("common");
-  const url = "https://example.pl";
+  const url = "https://app.calcaider.com";
   const loginData = {
-    login: "example",
-    password: "example",
+    login: "demo1@calcaider.com",
+    password: "Brelaka343",
   };
-  const imageUrl = "/images/commission.jpg";
-  const gitUrl = "https://example.pl";
+  // const gitUrl = "https://example.pl";
+  const link = "https://calcaider.com";
+  const imageUrl = "/images/caapp.jpg";
 
   if (language === "pl") {
     return (
@@ -233,14 +238,12 @@ const CommissionSystemsApp = () => {
         url={url}
         loginData={loginData}
         imageUrl={imageUrl}
-        gitUrl={gitUrl}
+        // gitUrl={gitUrl}
       >
         Aplikacja do tworzenie systemów prowizyjnych dla między innymi
         przedstawicieli handlowych.
         <div className="children__more">
-          <Link href="https://example.com">
-            <a>więcej informacji o aplikacji</a>
-          </Link>
+          <MoreLink moreText="Więcej informacji" link={link} />
         </div>
       </TimelineContent>
     );
@@ -250,9 +253,12 @@ const CommissionSystemsApp = () => {
       url={url}
       loginData={loginData}
       imageUrl={imageUrl}
-      gitUrl={gitUrl}
+      // gitUrl={gitUrl}
     >
       Application for creating commission systems for sales representatives.
+      <div className="children__more">
+        <MoreLink moreText="More information" link={link} />
+      </div>
     </TimelineContent>
   );
 };
@@ -264,7 +270,8 @@ const Ecomm = () => {
   const url = "https://ecomm.dziewanowski.pl";
   const loginData = null;
   const imageUrl = "/images/ecomm.jpg";
-  const gitUrl = "https://shooterstats.dziewanowski.pl";
+
+  // const gitUrl = "https://shooterstats.dziewanowski.pl";
 
   if (language === "pl") {
     return (
